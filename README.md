@@ -26,16 +26,18 @@ With these scripts building on Final IK, you can make your character walk to an 
 * Copy your object and name it something like "Object1Destination". This serves to visually indicate where your character should place the object. On this copy, delete everything you previously added to your object and has now been copied, too. Switch off the Mesh Renderer to make the copy invisible, but keep its box collider.  
 * Don't specify your object or the transform it is placed on as obstacles in the Navigation Mesh, because this will keep the character from walking close enough to the object to grab it.
 
-## Controll Transportation behavior
+## Controll Transportation behavior from one center script
 * Place the script "TransportInterface.cs" to any object in your scene. Insert your character, the objects and their destinations accordingly.
+* Also define position and rotation for the HoldPoint individually for each object. This allows you to hold each object in a certain way (e.g. a guitar may be held in a different angle than a book). For now, you can just insert (0, 1, 0.4) for all positions and each object's rotation for all HoldPoint rotations.
 * Press Play, click on the buttons in Game View.
 
-## Fine-tune the character's hand posture
+## Fine-tune the character's hand posture and the HoldPoint
 * You may have noticed that defining the hand posture with high precision is difficult, because when clicking on the hand copies attached to the object, you can only see their bones.
 * To fine-tune the posture, first open TransportInterface.cs, find the line "if (cascade == 3)" and replace 3 with a larger number (e.g. 30). This will keep the character from walking towards the goal after it has grabbed the object.
 * Play the scene and make the character grab the object by clicking on the according button. Then find the grabbed object in the hierarchy (it is now a child of the character!), click on its hand copies, and manipulate their bones. Your character will now move its actual hand accordingly, making it easy to see if the gesture looks natural.
 * When you are satisfied with the posture, copy the hand copy while still in play mode.
-* Stop play mode and replace the object's hand copy with the one you just copied.
+* Stop play mode and replace the object's hand copy with the one you just copied. (In some cases, I still found the hand slightly set off after this step. In that case, simply move the hand copy's position again, note down the x/y/z-coordinates and insert them manually after stopping play mode).
+* While your character is holding the object in Play Mode, you can also move and rotate the character's HoldPoint. When you are satisfied with the posture, note down the HoldPoints's position and rotation, stop Play Mode, and manually insert the values in "TransformInterface.cs".
 * Don't forget to reset the line "if (cascade == 3) in TransportInterface.cs.
 
 # Limitations

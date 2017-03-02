@@ -15,12 +15,6 @@ using RootMotion.FinalIK;
         public InteractionSystem interactionSystem; // The InteractionSystem of the character
         private InteractionObject CurrentIO;
 
-        //public GameObject dropPoint1; // Gameobject indicating goal position. Why gameObject and not transform? Because it needs to be set to another physics layer to avoid collisions with obj1
-        //public GameObject dropPoint2;
-        //public GameObject dropPoint3;
-        //private GameObject CurrentdropPoint;
-
-
         //public Transform pivot; // The pivot point of the hand targets - I don't use this
         public Transform holdPoint; // The point where the object will lerp to when picked up
         public Transform holdPointOriginal; // von mir: speichert, wo holdPoint liegen soll, wenn es nicht gerade zum dropPoint bewegt wird

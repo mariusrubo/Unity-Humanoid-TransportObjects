@@ -39,10 +39,10 @@ With these scripts building on Final IK, you can make your character walk to an 
 * Don't forget to reset the line "if (cascade == 3) in TransportInterface.cs.
 
 # Limitations
-* While this approach of procedural grabbing is more flexible than the use of animations, your character will of course still be much less flexible compared to real humans. Most of all, your character will always grab the object in the specified way, and if the object is not placed the right way round, your character will bring itself in an absurd posture to grab it.
+* While this approach of procedural grabbing is more flexible than the use of animations, your character will of course still be much less flexible compared to real humans. Most of all, your character will always grab the object in the specified way, and if the object is not placed the right way round, your character will bring itself in an absurd posture to grab it. For cube- or ball-shaped objects, Final IK offers solutions to correctly grab from all angles. For other objects, this is not easily realizable.
 * The picking-up procedure looks best if the object is positioned a little below the HoldPoint (e.g. on top of a table). If your character has to lift objects from the ground, some adjustments in Final IK's components may be needed to make this look natural. If your character has to get objects from a heightened position, adjust the Weight Curves on your object's "Interaction Object" to not make the object move through the table or shelf it is positioned on.
 * When placing the object to its destination, it is simply moved along a line from its HoldPoint in front of the character to its destination. Therefore, putting objects onto a heightened place may cause problems (e.g. if your character puts it on shelf above its head, the object will have to move through the shelf.)
 * The fingers do not move in the right positions if the scripts from my repository "Unity-Humanoid-Gestures" are being used in parallel. It is therefore best to switch these off.
 
 # License
-These scripts run under the GPLv3 license. See the comments inside the scripts for more details and ideas on how to adapt them for your own projects.
+"TransportInterface.cs" runs under the GPLv3 license. "PickUp.cs" was adapted from Final IK's "PickUp2Handed.cs" and published here with friendly permission from Root Motion.

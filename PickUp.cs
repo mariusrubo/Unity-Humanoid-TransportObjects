@@ -15,18 +15,12 @@ using RootMotion.FinalIK;
         public InteractionSystem interactionSystem; // The InteractionSystem of the character
         private InteractionObject CurrentIO;
 
-        //public GameObject dropPoint1; // Gameobject indicating goal position. Why gameObject and not transform? Because it needs to be set to another physics layer to avoid collisions with obj1
-        //public GameObject dropPoint2;
-        //public GameObject dropPoint3;
-        //private GameObject CurrentdropPoint;
-
-
         //public Transform pivot; // The pivot point of the hand targets - I don't use this
         public Transform holdPoint; // The point where the object will lerp to when picked up
         public Transform holdPointOriginal; // von mir: speichert, wo holdPoint liegen soll, wenn es nicht gerade zum dropPoint bewegt wird
         private float pickUpTime = 0.3f; // Maximum lerp speed of the object. Decrease this value to give the object more weight
-        float slerpValue = 0f; // von mir. Brauche ich, um Box beim Abstellen an Ziel heran zu slerpen
-        bool dropping = false; // von mir. Bestimmt, wann Box im Drop-Modus ist
+        float slerpValue = 0f; // I added this to move holdPoint towards destination
+        bool dropping = false; // I added this to communicate when object is being dropped to destination
 
         private float holdWeight, holdWeightVel;
         private Vector3 pickUpPosition;
@@ -49,7 +43,7 @@ using RootMotion.FinalIK;
 
         public float DropObject(Transform droppoint) // lerp object towards drop point
         {
-            holdPoint.position = Vector3.Slerp(holdPointOriginal.position, droppoint.position, slerpValue); // Box wird an Ziel herangeslerpt
+            holdPoint.position = Vector3.Slerp(holdPointOriginal.position, droppoint.position, slerpValue); // move object towards destination
             slerpValue += .04f;
             return slerpValue;
         }

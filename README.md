@@ -14,7 +14,7 @@ With these scripts building on Final IK, you can make your character walk to an 
 * Attach the script "PickUp.cs" to your character. Drag your character to the field "Interaction System" and the two HoldPoints to their according places.
 * Find both hands from your character in the hierarchy, and attach "Hand Poser.cs" to both of them. You do not need to fill in a transform for "PoseRoot".
 
-## Prepare Objects
+## Prepare objects
 * Make sure your object has a Rigidbody component and a box collider.
 * Attach the script "Interaction Object" to your object. Add a weight curve for "Position Weight" that starts at 0, reaches 1 at 0.6sec and returns to 0 at 1.2sec. This means that the character will need 0.6sec to move its hands to the correct positions on the objects. You can change these values, if this is too fast or slow for you.
 * Still on your object's "Interaction Object", also add 3 multipliers, all computing from Position Weight: One for "Rotation Weight" (value here: 1), one for "Poser Weight" (value: 1), one for "Reach" (value: 0.2). You do not need to insert anything in "Other Look At Target", "Other Targets" and "Position Offset".
@@ -26,7 +26,7 @@ With these scripts building on Final IK, you can make your character walk to an 
 * Copy your object and name it something like "Object1Destination". This serves to visually indicate where your character should place the object. On this copy, delete everything you previously added to your object and has now been copied, too. Switch off the Mesh Renderer to make the copy invisible, but keep its box collider.  
 * Don't specify your object or the transform it is placed on as obstacles in the Navigation Mesh, because this will keep the character from walking close enough to the object to grab it.
 
-## Controll Transportation behavior from one center script
+## Control transportation behavior from one center script
 * Place the script "TransportInterface.cs" to any object in your scene. Insert your character, the objects and their destinations accordingly.
 * Also define position and rotation for the HoldPoint individually for each object. This allows you to hold each object in a certain way (e.g. a guitar may be held in a different angle than a book). For now, you can just insert (0, 1, 0.4) for all positions and each object's rotation for all HoldPoint rotations.
 * Press Play, click on the buttons in Game View.

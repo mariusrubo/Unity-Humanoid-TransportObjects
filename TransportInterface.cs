@@ -8,7 +8,7 @@ public class TransportInterface : MonoBehaviour {
 
     InteractionObject whichObject;
     GameObject whichGoal;
-    public int stepInCascade;
+    int stepInCascade;
     int intgoal = 0;
     float holdWeight;
     
@@ -87,7 +87,7 @@ public class TransportInterface : MonoBehaviour {
             if (pickedup > 0.50) { cascade++; } // start walking towards goal before reaching 1, that is before object is perfectly in place. This gives a more fluent movement.
         }
 
-        if (cascade == 30) // walk to the goal
+        if (cascade == 3) // walk to the goal
         {
             bool GoalReached = walktogoal.WalkTo(whichGoal.transform, false, 0.4f, 0.2f, 120);
             if (GoalReached) { cascade++; }

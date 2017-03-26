@@ -34,9 +34,9 @@ With these scripts building on Final IK, you can make your character walk to an 
 ## Fine-tune the character's hand posture and the HoldPoint
 * You may have noticed that defining the hand posture with high precision is difficult, because when clicking on the hand copies attached to the object, you can only see their bones.
 * To fine-tune the posture, first open TransportInterface.cs, find the line "if (cascade == 3)" and replace 3 with a larger number (e.g. 30). This will keep the character from walking towards the goal after it has grabbed the object.
-* Play the scene and make the character grab the object by clicking on the according button. Then find the grabbed object in the hierarchy (it is now a child of the character!), click on its hand copies, and manipulate their bones. Your character will now move its actual hand accordingly, making it easy to see if the gesture looks natural.
-* When you are satisfied with the posture, copy the hand copy while still in play mode.
-* Stop play mode and replace the object's hand copy with the one you just copied. (In some cases, I still found the hand slightly set off after this step. In that case, simply move the hand copy's position again, note down the x/y/z-coordinates and insert them manually after stopping play mode).
+* Play the scene and make the character grab the object by clicking on the according button. Then find the grabbed object in the hierarchy (it is now a child of the character!), click on its hand copies, and manipulate their bones. Your character will now move its actual hand accordingly, making it easy to see if the gesture looks natural. Also move the HoldPointOriginal, until you character holds the object at the right place.
+* When you are satisfied with the posture, copy the hand copy while still in play mode, and note down the position and rotation of the hand copy.
+* Stop play mode and replace the object's hand copy with the one you just copied. Set the position and rotation of he hand copy to the values you just noted down. 
 * While your character is holding the object in Play Mode, you can also move and rotate the character's HoldPoint. When you are satisfied with the posture, note down the HoldPoints's position and rotation, stop Play Mode, and manually insert the values in "TransformInterface.cs".
 * Don't forget to reset the line "if (cascade == 3)" in TransportInterface.cs.
 

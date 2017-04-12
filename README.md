@@ -39,6 +39,7 @@ With these scripts building on Final IK, you can make your character walk to an 
 * Stop play mode and replace the object's hand copy with the one you just copied. Set the position and rotation of he hand copy to the values you just noted down. 
 * While your character is holding the object in Play Mode, you can also move and rotate the character's HoldPoint. When you are satisfied with the posture, note down the HoldPoints's position and rotation, stop Play Mode, and manually insert the values in "TransformInterface.cs".
 * Don't forget to reset the line "if (cascade == 3)" in TransportInterface.cs.
+* If you wish to use your object in another scene, it is best to make the object including the attached hands a prefab: to do this, just drag the object from the inspector to the project view. You can then insert the prefab in a new scene, with the attached hands in the correct place.
 
 # Limitations
 * While this approach of procedural grabbing is more flexible than the use of animations, your character will of course still be much less flexible compared to real humans. Most of all, your character will always grab the object in the specified way, and if the object is not placed the right way round, your character will bring itself in an absurd posture to grab it. For cube- or ball-shaped objects, Final IK offers solutions to correctly grab from all angles. For other objects, this is not easily realizable.

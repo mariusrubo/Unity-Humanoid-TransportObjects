@@ -52,10 +52,8 @@ using RootMotion.FinalIK;
 
         public float DropObject(Transform droppoint) // lerp object towards drop point
         {
-            holdPoint.position = Vector3.Slerp(holdPointOriginal.position, droppoint.position, slerpValue); // position is slerped towards goal
-                                                                                                            //holdPoint.position = Vector3.Slerp(holdPointOriginal.position, droppoint.position, slerpValue); // Box wird an Ziel herangeslerpt
-            holdPoint.rotation = Quaternion.Slerp(holdPointOriginal.rotation, Quaternion.Euler(new Vector3(0, holdPointOriginal.rotation.y, 0)), slerpValue); // Make sure object is upright when put down
-        holdPoint.rotation = Quaternion.Slerp(holdPointOriginal.rotation, Quaternion.Euler(new Vector3(ObjectWhenUpright.x, holdPointOriginal.localRotation.y, ObjectWhenUpright.z)), slerpValue); // put object upright, bot y rotation does not need to be like at the beginning
+            holdPoint.position = Vector3.Slerp(holdPointOriginal.position, droppoint.position, slerpValue); // position is slerped towards goal                                                                                              //holdPoint.position = Vector3.Slerp(holdPointOriginal.position, droppoint.position, slerpValue); // Box wird an Ziel herangeslerpt
+            holdPoint.rotation = Quaternion.Slerp(holdPointOriginal.rotation, droppoint.rotation, slerpValue); // place in exactly the angle indicated by goal     
         
             slerpValue += .04f;
             return slerpValue;
